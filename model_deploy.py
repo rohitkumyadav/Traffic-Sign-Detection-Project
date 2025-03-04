@@ -5,14 +5,13 @@ from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from PIL import Image
 
-# Try loading the model
 try:
     model = load_model("traffic_sign_cnn_model.h5")
 except Exception as e:
-    st.error(f"⚠️ Error loading model: {e}")
+    st.error(f" Error loading model: {e}")
     st.stop()
 
-# Define class labels (Adjust based on your dataset)
+# Defining the class level
 class_labels = {
     0: "Speed Limit 20 km/h", 1: "Speed Limit 30 km/h", 2: "Speed Limit 50 km/h",
     3: "Speed Limit 60 km/h", 4: "Speed Limit 70 km/h", 5: "Speed Limit 80 km/h",
@@ -29,7 +28,7 @@ class_labels = {
     41: "End of No Passing", 42: "End of No Passing for Vehicles > 3.5t"
 }
 
-# Basic UI
+# BASIC UI
 st.title("🚦 Traffic Sign Recognition AI")
 st.write("Upload an image of a traffic sign, and the AI will recognize it!")
 
@@ -62,10 +61,10 @@ if uploaded_file is not None:
         predicted_label = class_labels.get(predicted_class, "Unknown Sign")
 
         # Display prediction with confidence
-        st.success(f"🛑 **Predicted Traffic Sign:** {predicted_label}")
-        st.info(f"🎯 **Confidence Score:** {confidence_score:.2f}%")
+        st.success(f" **Predicted Traffic Sign:** {predicted_label}")
+        st.info(f" **Confidence Score:** {confidence_score:.2f}%")
 
     except Exception as e:
-        st.error(f"⚠️ An error occurred while processing the image: {e}")
+        st.error(f"An error occurred while processing the image: {e}")
 else:
-    st.warning("⚠️ Please upload an image to proceed.")
+    st.warning("Please upload an image to proceed.")
