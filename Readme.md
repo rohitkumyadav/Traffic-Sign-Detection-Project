@@ -1,53 +1,102 @@
-# Traffic Sign Recognition AI
+# Traffic Light Detection
 
 ## Project Overview
-The **Traffic Sign Recognition AI** is a deep learning-based system designed to recognize traffic signs using the **German Traffic Sign Recognition Benchmark (GTSRB)** dataset. The project employs **Convolutional Neural Networks (CNNs)** for classification and is deployed as a web application using **Streamlit**.
+The **Traffic Light Detection Project** is a machine learning-based system designed to accurately detect and classify traffic lights in real-time. This project employs **deep learning techniques** to enhance road safety, assist autonomous vehicles, and improve traffic management systems.
 
 ## Project Components
-### 1. Model Training (`main.ipynb`)
-- The **training script** is implemented in Jupyter Notebook.
-- It loads the GTSRB dataset, preprocesses the images, and trains a CNN model for classification.
-- The trained model is saved as `traffic_sign_cnn_model.h5`.
+### 1. Model Training (`train_model.py`)
+- The **training script** processes traffic light images and trains a deep learning model using a **Convolutional Neural Network (CNN)**.
+- The dataset consists of labeled images of traffic lights in various conditions.
+- The trained model is saved for real-time inference.
 
-### 2. Model Deployment (`model_deploy.py`)
-- The **Streamlit application** allows users to upload an image of a traffic sign.
-- The uploaded image is preprocessed and passed to the trained CNN model.
-- The model predicts the traffic sign label and displays the result along with a confidence score.
-- The application includes a mapping of class labels to real-world traffic signs.
+### 2. Model Deployment (`detect_traffic_lights.py`)
+- The **detection module** processes live camera feeds or images.
+- The model identifies traffic lights and classifies them as **red, yellow, or green**.
+- Outputs include **bounding boxes** and real-time **traffic signal status**.
 
 ## Features
-- **Deep Learning Model**: Uses CNN for accurate traffic sign recognition.
-- **User-Friendly Interface**: Built with Streamlit for ease of use.
-- **Real-Time Predictions**: Processes and classifies images instantly.
-- **Confidence Score**: Displays the model's confidence in its prediction.
+- **Real-Time Traffic Light Detection**: Classifies lights into red, yellow, or green.
+- **Deep Learning Model**: Utilizes a pre-trained CNN for efficient recognition.
+- **Robust Performance**: Works in various lighting and weather conditions.
+- **Scalable**: Can be integrated into autonomous vehicle systems and smart traffic management applications.
+- **Optimized Processing**: Ensures real-time inference with minimal latency.
 
-## Usage Instructions
-1. **Train the Model**
-   - Open `main.ipynb`.
-   - Execute the notebook to train the CNN model.
-   - The trained model is saved as `traffic_sign_cnn_model.h5`.
-
-2. **Run the Streamlit App**
-   - Ensure `traffic_sign_cnn_model.h5` is in the working directory.
-   - Execute the following command in the terminal:
-     ```bash
-     streamlit run model_deploy.py
-     ```
-   - Upload a traffic sign image and get the classification result.
-
-## Dependencies
-- Python
-- TensorFlow / Keras
+## Installation
+### Prerequisites
+Ensure the following dependencies are installed:
+- Python 3.x
+- TensorFlow / PyTorch
 - OpenCV
 - NumPy
-- PIL (Pillow)
-- Streamlit
+- Matplotlib (for visualization)
+
+### Setup
+1. **Clone the Repository:**
+   ```bash
+   git clone https://github.com/rohitkumyadav/Traffic-Light-Detection-Project.git
+   ```
+2. **Navigate to the Project Directory:**
+   ```bash
+   cd Traffic-Light-Detection-Project
+   ```
+3. **Install Required Packages:**
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## Usage
+1. **Run the Detection Script:**
+   ```bash
+   python detect_traffic_lights.py
+   ```
+2. **Supported Input Sources:**
+   - Live camera feed
+   - Pre-recorded videos
+   - Static images
+3. **Output:**
+   - Bounding boxes around detected traffic lights
+   - Traffic signal classification
+
+## Model Training
+### Dataset
+The model is trained on a dataset containing labeled images of traffic lights under various conditions (day, night, rain, fog, etc.).
+
+### Training Process
+To train the model or fine-tune an existing one:
+```bash
+python train_model.py --epochs 50 --batch_size 32 --learning_rate 0.001
+```
+
+## Performance Evaluation
+The model is evaluated based on:
+- **Precision, Recall, and F1-score**
+- **Confusion matrix analysis**
+- **Testing on real-world datasets**
+
+## Applications
+- **Autonomous Vehicles**: Enhances navigation by recognizing traffic signals.
+- **Smart Traffic Management**: Improves monitoring and regulation of traffic lights.
+- **Surveillance Systems**: Assists in traffic law enforcement and road safety analysis.
 
 ## Future Enhancements
-- Improve model accuracy with data augmentation.
-- Support additional traffic sign datasets.
-- Deploy as a cloud-based API.
-- Enhance the UI with interactive elements.
+- Improve model accuracy with **data augmentation**.
+- Expand dataset coverage to include more **real-world scenarios**.
+- Deploy as a **cloud-based API** for integration into larger systems.
+- Optimize for **edge computing devices** for low-latency processing.
 
-This project is a practical demonstration of AI in **real-world traffic systems** and can be further extended for **autonomous vehicle applications**.
+## Contributing
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a new branch (`feature-new`).
+3. Commit your changes.
+4. Open a pull request for review.
+
+## License
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Support
+If you find this project useful, consider **starring** the repository on GitHub.
+
+---
+Developed by [Rohit Kumar Yadav](https://github.com/rohitkumyadav)
 
