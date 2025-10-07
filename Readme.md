@@ -1,4 +1,4 @@
-# Traffic Light Detection
+# Traffic Sign Detection
 
 ## Project Overview
 The **Traffic sign Detection Project** is a machine learning-based system designed to accurately detect and classify traffic lights in real-time. This project employs **deep learning techniques** to enhance road safety, assist autonomous vehicles, and improve traffic management systems.
